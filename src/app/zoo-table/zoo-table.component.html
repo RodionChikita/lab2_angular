@@ -1,0 +1,17 @@
+<dx-data-grid
+    [dataSource]="zooData"
+    [editing]="zooOptions"
+    [showColumnLines]="true"
+    [showRowLines]="true"
+    [showBorders]="true"
+    [rowAlternationEnabled]="true">
+    <dxi-column dataField="animalName" caption="Имя животного"></dxi-column>
+    <dxi-column dataField="animalId" caption="ID животного"></dxi-column>
+    <dxi-column dataField="vaccinated" caption="Привит" dataType="boolean">
+        <input id="html" type="checkbox">
+    </dxi-column>
+    <dxi-column dataField="country" caption="Страна">
+    </dxi-column>
+    <dxi-column dataField="price" caption="Стоимость" dataType="number" format="currency"></dxi-column>
+    <dxi-column dataField="dataTime" caption="Дата заказа" dataType="datetime"></dxi-column>
+</dx-data-grid>
