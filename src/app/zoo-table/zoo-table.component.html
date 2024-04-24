@@ -1,17 +1,30 @@
+<dx-button (onClick)="edit()" text="edit"/>
 <dx-data-grid
-    [dataSource]="zooData"
-    [editing]="zooOptions"
-    [showColumnLines]="true"
-    [showRowLines]="true"
-    [showBorders]="true"
-    [rowAlternationEnabled]="true">
-    <dxi-column dataField="animalName" caption="Имя животного"></dxi-column>
-    <dxi-column dataField="animalId" caption="ID животного"></dxi-column>
-    <dxi-column dataField="vaccinated" caption="Привит" dataType="boolean">
-        <input id="html" type="checkbox">
-    </dxi-column>
-    <dxi-column dataField="country" caption="Страна">
-    </dxi-column>
-    <dxi-column dataField="price" caption="Стоимость" dataType="number" format="currency"></dxi-column>
-    <dxi-column dataField="dataTime" caption="Дата заказа" dataType="datetime"></dxi-column>
+  [dataSource]="zooData"
+  [showColumnLines]="true"
+  [showRowLines]="true"
+  [showBorders]="true"
+  [rowAlternationEnabled]="true">
+  <dxi-column dataField="animalName" caption="Имя животного"></dxi-column>
+  <dxi-column dataField="animalId" caption="ID животного"></dxi-column>
+  <dxi-column dataField="vaccinated" caption="Привит" dataType="boolean">
+    <input id="html" type="checkbox">
+  </dxi-column>
+  <dxi-column dataField="country" caption="Страна">
+  </dxi-column>
+  <dxi-column dataField="price" caption="Стоимость" dataType="number" format="currency"></dxi-column>
+  <dxi-column dataField="dataTime" caption="Дата заказа" dataType="datetime"></dxi-column>
+  <dxi-column dataField="id" cellTemplate="edit"/>
+  <dxi-column caption="Edit" [cellTemplate]="editCellTemplate"></dxi-column>
+<!--  <ng-template *dxTemplate="let id of 'edit'">-->
+<!--    <dx-button (onClick)="edit(id)" text="edit"/>-->
+<!--  </ng-template>-->
 </dx-data-grid>
+
+<ng-template #editCellTemplate let-data="data">
+  <dx-button (onClick)="edit(data.id)" text="edit"/>
+</ng-template>
+
+<ng-container *ngIf="modalVisible">
+  <app-add-and-edit-modal (onSave)="hideModal($event)"/>
+</ng-container>
