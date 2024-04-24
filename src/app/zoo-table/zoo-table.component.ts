@@ -38,11 +38,11 @@ export class ZooTableComponent {
         const editedAnimal: Animal | undefined = this.zooData.find((animal: Animal) => this.selectedId === animal.id);
         if (editedAnimal) {
           this.zooData[this.zooData.indexOf(editedAnimal)] = {
-            ...animalData
+            ...animalData,
+            id: this.selectedId
           };
         }
       }
-
     }
     this.modalVisible = false;
   }
