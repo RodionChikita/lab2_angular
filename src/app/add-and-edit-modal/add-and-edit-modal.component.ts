@@ -10,14 +10,14 @@ import {Animal} from "../interface/animal";
 })
 export class AddAndEditModalComponent {
   private _mainService: MainService = inject(MainService);
+  protected _names: string[] = ["Вася", "Петя", "Шарик"];
 
   @Output()
   public onSave: EventEmitter<Animal | null> = new EventEmitter<Animal | null>();
 
-  public currentDate: Date = new Date();
-  public mask: string = '';
-
-  public form: FormGroup = this._mainService.form;
+  protected currentDate: Date = new Date();
+  protected mask: string = '+7(999)999-99-99';
+  protected form: FormGroup = this._mainService.form;
 
   public save() {
     this.onSave.emit(this.form.value);

@@ -1,11 +1,10 @@
 <dx-popup [formGroup]="form"
           [visible]="true">
-  <dx-check-box label="vaccinated" formControlName="vaccinated"/>
-  <dx-text-box label="name" formControlName="animalName"/>
-  <dx-text-box formControlName="animalId"/>
-  <dx-text-box formControlName="country"/>
-  <dx-text-box formControlName="price"/>
-  <dx-text-box formControlName="dataTime"/>
+  <dx-check-box text="vaccinated" formControlName="vaccinated"/>
+  <dx-select-box [dataSource] = "_names" label="name" formControlName="animalName"/>
+  <dx-text-box label="phone" [mask] = "mask" formControlName="phone"/>
+  <dx-text-box label="price" formControlName="price"/>
+  <dx-date-box label="dataTime" [min] = "currentDate" formControlName="dataTime"/>
   <dx-button [disabled]="form.invalid" (onClick)="save()" text="save"/>
   <dx-button (onClick)="cancel()" text="cancel"/>
 </dx-popup>

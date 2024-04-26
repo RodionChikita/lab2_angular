@@ -1,6 +1,13 @@
 import { BrowserModule } from '@angular/platform-browser';
 import { NgModule } from '@angular/core';
-import {DxButtonModule, DxCheckBoxModule, DxDataGridModule, DxPopupModule, DxTextBoxModule} from 'devextreme-angular';
+import {
+  DxButtonModule,
+  DxCheckBoxModule,
+  DxDataGridModule,
+  DxDateBoxModule,
+  DxPopupModule, DxSelectBoxModule,
+  DxTextBoxModule
+} from 'devextreme-angular';
 
 import { AppComponent } from './app.component';
 import { ZooTableComponent } from './zoo-table/zoo-table.component';
@@ -20,7 +27,9 @@ import {ReactiveFormsModule} from "@angular/forms";
     ReactiveFormsModule,
     DxTextBoxModule,
     DxButtonModule,
-    DxPopupModule
+    DxPopupModule,
+    DxDateBoxModule,
+    DxSelectBoxModule
   ],
   providers: [],
   bootstrap: [AppComponent]

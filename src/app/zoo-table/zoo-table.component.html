@@ -5,18 +5,22 @@
   [showRowLines]="true"
   [showBorders]="true"
   [rowAlternationEnabled]="true">
-  <dxi-column dataField="animalName" caption="Имя животного"></dxi-column>
-  <dxi-column dataField="animalId" caption="ID животного"></dxi-column>
+  <dxi-column dataField="animalName" caption="Имя животного"/>
   <dxi-column dataField="vaccinated" caption="Привит" dataType="boolean">
     <input id="html" type="checkbox">
   </dxi-column>
-  <dxi-column dataField="country" caption="Страна">
+  <dxi-column dataField="phone" caption="Номер телефона">
+    <dx-text-box [mask]="mask"/>
   </dxi-column>
-  <dxi-column dataField="price" caption="Стоимость" dataType="number" format="currency"></dxi-column>
-  <dxi-column dataField="dataTime" caption="Дата заказа" dataType="datetime"></dxi-column>
-  <dxi-column dataField="id" cellTemplate="edit"/>
+  <dxi-column dataField="price" caption="Стоимость" dataType="number" format="currency"/>
+  <dxi-column dataField="dataTime" caption="Дата заказа" dataType="datetime"/>
+  <dxi-column cellTemplate="edit"/>
+  <dxi-column cellTemplate="delete"/>
   <ng-container *dxTemplate="let id of 'edit'">
     <dx-button (onClick)="edit(id)" text="edit"/>
+  </ng-container>
+  <ng-container *dxTemplate="let id of 'delete'">
+    <dx-button (onClick)="delete(id)" text="delete"/>
   </ng-container>
 </dx-data-grid>
 
