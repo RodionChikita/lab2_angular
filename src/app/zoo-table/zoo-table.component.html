@@ -17,7 +17,7 @@
   <dxi-column cellTemplate="edit"/>
   <dxi-column cellTemplate="delete"/>
   <ng-container *dxTemplate="let id of 'edit'">
-    <dx-button (onClick)="edit(id)" text="edit"/>
+    <dx-button (onClick)="edit(id.data.id)" text="edit"/>
   </ng-container>
   <ng-container *dxTemplate="let id of 'delete'">
     <dx-button (onClick)="delete(id)" text="delete"/>
@@ -25,5 +25,5 @@
 </dx-data-grid>
 
 <ng-container *ngIf="modalVisible">
-  <app-add-and-edit-modal (onSave)="hideModal($event)"/>
+  <app-add-and-edit-modal [previousData] = "animal" (onSave)="hideModal($event)"/>
 </ng-container>
